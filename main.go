@@ -61,11 +61,11 @@ func execute(args []string) int {
 	var f func([]string) int
 	switch args[0] {
 	case "cd":
-		f = baresh_cd
+		f = bareshCD
 	case "help":
-		f = baresh_help
+		f = bareshHelp
 	case "exit":
-		f = baresh_exit
+		f = bareshExit
 	default:
 		f = launch
 	}
@@ -98,8 +98,8 @@ func launch(args []string) int {
 
 // internal commands
 
-// baresh_cd change process working directory.
-func baresh_cd(args []string) int {
+// bareshCD change process working directory.
+func bareshCD(args []string) int {
 	if len(args) == 1 {
 		// no directory name passed, should cd to $HOME. we'll just return :).
 		return 0
@@ -111,8 +111,8 @@ func baresh_cd(args []string) int {
 	return 0
 }
 
-// baresh_help print help information.
-func baresh_help(args []string) int {
+// bareshHelp print help information.
+func bareshHelp(args []string) int {
 	const help = `baresh 
 
 These shell commands are defined internally. Type 'help' to see this list.
@@ -125,8 +125,8 @@ exit
 	return 0
 }
 
-// baresh_exit terminate the process.
-func baresh_exit(args []string) int {
+// bareshExit terminate the process.
+func bareshExit(args []string) int {
 	// break out of the shells loop
 	return 1
 }
